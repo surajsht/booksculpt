@@ -4,18 +4,18 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
-    <div className="login-container">
-      <div className="login-item">
-        <h2 className="login-title-primary">
+    <div className="auth-container login-container">
+      <div className="auth-item login-item">
+        <h2 className="auth-title-primary login-title-primary">
           Enter BookSculpt, where your literary sanctuary awaits.
         </h2>
         <img src={LoginImage} alt="login-image" />
       </div>
 
-      <div className="login-item">
-        <h2 className="login-title-secondary"> Login </h2>
+      <div className="auth-item login-item">
+        <h2 className="auth-title-secondary login-title-secondary"> Login </h2>
 
-        <form className="login-form">
+        <form className="auth-form login-form">
           <div className="form-item">
             <label htmlFor="email"> Email </label>
             <input type="text" />
@@ -26,12 +26,12 @@ const Login = () => {
             <input type="password" />
           </div>
 
-          <button type="submit" className="login-btn">
+          <button type="submit" className="auth-btn login-btn">
             Login
           </button>
         </form>
 
-        <button className="google-auth">
+        <button className="auth-btn google-auth">
           <img src={GoogleLogo} alt="google-logo-svg" />
           Login with Google
         </button>

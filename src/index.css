@@ -12,13 +12,13 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-.login-container {
+.auth-container {
   display: grid;
   grid-template-columns: 40% 60%;
   height: 100vh;
 }
 
-.login-item {
+.auth-item {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -27,63 +27,74 @@ body {
   width: 100%;
 }
 
-.login-item:first-child {
+.auth-item:first-child {
   color: #fff;
   background-color: #4c6fff;
   padding: 0 8rem;
 }
 
-.login-item img {
+.auth-item img {
   height: 52rem;
   width: 100%;
   object-fit: contain;
 }
 
-.login-title-primary {
+.auth-title-primary {
   font-size: 4.8rem;
   font-weight: 700;
   margin-bottom: 12rem;
 }
 
-.login-title-secondary {
+.auth-title-secondary {
   font-size: 4rem;
   margin-bottom: 4rem;
 }
 
-.login-item:last-child {
-  padding: 0 28rem;
-}
-
-.login-form {
-  width: 100%;
-}
-
-.login-form .form-item {
+.signup-title-primary {
   margin-bottom: 2.4rem;
 }
 
-.login-form .form-item:last-of-type {
+.signup-description {
+  line-height: 1.5;
+  margin-bottom: 4.8rem;
+}
+
+.auth-item:last-child {
+  padding: 0 28rem;
+}
+
+.auth-form {
+  width: 100%;
+}
+
+.auth-form .form-item {
+  margin-bottom: 2.4rem;
+}
+
+.auth-form .form-item:last-of-type {
   margin-bottom: 4rem;
 }
 
-.login-form :where(*, .form-item *) {
+.auth-form :where(*, .form-item *) {
   display: block;
 }
 
-.login-form .form-item label {
+.auth-form .form-item label {
   font-size: 1.6rem;
   margin-bottom: 0.8rem;
 }
 
-.login-form .form-item input {
+.auth-form .form-item input {
   height: 5.2rem;
   width: 100%;
   padding: 1.6rem;
   border-radius: 1.2rem;
 }
 
-.login-btn,
+.auth-btn,
 .google-auth {
+  color: #fff;
+  background-color: #667acc;
   font-size: 1.8rem;
   letter-spacing: 0.1rem;
   width: 100%;
@@ -92,17 +103,13 @@ body {
   outline: 0;
   cursor: pointer;
   border-radius: 1.2rem;
-}
-
-.login-btn {
-  color: #fff;
-  background-color: #667acc;
   margin-bottom: 1.6rem;
 }
 
 .google-auth {
   position: relative;
   border: 2px solid #000;
+  color: #000;
   background-color: transparent;
   margin-bottom: 3.2rem;
 }
@@ -116,26 +123,24 @@ body {
   width: 2.4rem;
 }
 
-.login-btn:hover,
-.login-btn:focus,
-.google-auth:hover,
-.google-auth:focus {
+.auth-btn:hover,
+.auth-btn:focus {
   color: #fff;
   background-color: #242733;
 }
 
-.login-item > p {
+.auth-item > p {
   font-size: 1.6rem;
 }
 
-.login-item > p a {
+.auth-item > p a {
   display: inline-block;
   color: #667acc;
   text-decoration: none;
   margin-left: 0.8rem;
 }
 
-.login-item > p a:hover,
-.login-item > p a:focus {
+.auth-item > p a:hover,
+.auth-item > p a:focus {
   color: #000;
 }
