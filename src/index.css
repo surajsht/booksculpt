@@ -18,6 +18,13 @@ body {
   height: 100vh;
 }
 
+@media (max-width: 1024px) {
+  .auth-container {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+}
+
 .auth-item {
   display: flex;
   flex-direction: column;
@@ -27,16 +34,68 @@ body {
   width: 100%;
 }
 
+@media (max-width: 575px) {
+  .auth-item {
+    padding: 3.2rem 1.6rem !important;
+  }
+}
+
 .auth-item:first-child {
   color: #fff;
   background-color: #4c6fff;
   padding: 0 8rem;
 }
 
-.auth-item img {
+@media (max-width: 1600px) {
+  .auth-item:first-child {
+    padding: 0 6rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .auth-item:first-child {
+    padding: 4rem;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 1024px) {
+  .auth-item:first-child {
+    flex-direction: row;
+    align-items: center;
+    gap: 2.4rem;
+    padding: 4rem;
+  }
+}
+
+.auth-item > img {
   height: 52rem;
   width: 100%;
   object-fit: contain;
+}
+
+@media (max-width: 1600px) {
+  .auth-item > img {
+    height: 40rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .auth-item > img {
+    height: 36rem;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .auth-item > img {
+    width: 45%;
+  }
+}
+
+@media (max-width: 575px) {
+  .auth-item > img {
+    height: 28rem;
+    margin-top: 3.2rem;
+  }
 }
 
 .auth-title-primary {
@@ -45,22 +104,50 @@ body {
   margin-bottom: 12rem;
 }
 
+@media (max-width: 1600px) {
+  .auth-title-primary {
+    margin-bottom: 8rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .auth-title-primary {
+    font-size: 4rem;
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .auth-title-primary {
+    font-size: 3.6rem;
+  }
+}
+
 .auth-title-secondary {
   font-size: 4rem;
   margin-bottom: 4rem;
 }
 
-.signup-title-primary {
-  margin-bottom: 2.4rem;
-}
-
-.signup-description {
-  line-height: 1.5;
-  margin-bottom: 4.8rem;
-}
-
 .auth-item:last-child {
   padding: 0 28rem;
+}
+
+@media (max-width: 1600px) {
+  .auth-item:last-child {
+    padding: 0 16rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .auth-item:last-child {
+    padding: 0 8rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .auth-item:last-child {
+    padding: 4rem;
+  }
 }
 
 .auth-form {

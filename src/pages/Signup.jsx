@@ -7,12 +7,8 @@ const Signup = () => {
     <div className="auth-container signup-container">
       <div className="auth-item signup-item">
         <h2 className="auth-title-primary signup-title-primary">
-          Enroll Today, Command Your Book Kingdom
+          Register Now for Seamless Management of Your Personal Library Haven.
         </h2>
-        <p className="signup-description">
-          Step into the world of BookSculpt, where your personal library takes
-          center stage. Sign up now and shape your literary haven with ease.
-        </p>
         <img src={SignupImage} alt="signup-image" />
       </div>
 
