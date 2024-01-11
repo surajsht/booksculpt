@@ -128,6 +128,16 @@ body {
   margin-bottom: 4rem;
 }
 
+.auth-error {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  padding: 0.8rem;
+  color: #ff2727;
+  background-color: #fcecec;
+  margin-bottom: 2.4rem;
+}
+
 .auth-item:last-child {
   padding: 0 28rem;
 }
