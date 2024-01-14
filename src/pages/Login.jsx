@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import LoginImage from "../assets/login-image.png";
 import GoogleLogo from "../assets/google-logo.svg";
 import { Link } from "react-router-dom";
@@ -9,14 +9,16 @@ import {
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase/FireConfig";
+import { UseCustomContext } from "../context/CustomContext";
 
 const Login = () => {
-  let [email, getEmail] = useState("");
-  let [password, getPassword] = useState("");
-  let [error, getError] = useState("");
+  let [email, setEmail] = useState("");
+  let [password, setPassword] = useState("");
 
   const provider = new GoogleAuthProvider();
   const navigate = useNavigate();
+
+  const { error, handleError } = UseCustomContext();
 
   const loginUser = async (e) => {
     e.preventDefault();
@@ -37,39 +39,27 @@ const Login = () => {
     }
   };
 
-  const handleError = (e) => {
-    getError(e);
-
-    setTimeout(() => {
-      getError("");
-    }, 3000);
-  };
-
-  useEffect(() => {
-    return () => getError("");
-  }, []);
-
   return (
-    <div className="auth-container login-container">
-      <div className="auth-item login-item">
-        <h2 className="auth-title-primary login-title-primary">
+    <div className="auth-container">
+      <div className="auth-item">
+        <h2 className="auth-title-primary">
           Enter BookSculpt, where your literary sanctuary awaits.
         </h2>
         <img src={LoginImage} alt="login-image" />
       </div>
 
-      <div className="auth-item login-item">
-        <h2 className="auth-title-secondary login-title-secondary"> Login </h2>
+      <div className="auth-item">
+        <h2 className="auth-title-secondary"> Login </h2>
 
         {error && <span className="auth-error"> {error} </span>}
 
-        <form className="auth-form login-form" onSubmit={(e) => loginUser(e)}>
+        <form className="auth-form" onSubmit={(e) => loginUser(e)}>
           <div className="form-item">
             <label htmlFor="email"> Email </label>
             <input
               type="text"
               value={email}
-              onChange={(e) => getEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
@@ -78,7 +68,7 @@ const Login = () => {
             <input
               type="password"
               value={password}
-              onChange={(e) => getPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
 

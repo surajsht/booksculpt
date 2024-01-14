@@ -7,15 +7,17 @@ import {
   GoogleAuthProvider,
 } from "firebase/auth";
 import { auth } from "../firebase/FireConfig";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { UseCustomContext } from "../context/CustomContext";
 
 const Signup = () => {
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
-  let [error, setError] = useState("");
 
   const navigate = useNavigate();
   const provider = new GoogleAuthProvider();
+
+  const { error, handleError } = UseCustomContext();
 
   const signupUser = async (e) => {
     e.preventDefault();
@@ -36,33 +38,21 @@ const Signup = () => {
     }
   };
 
-  const handleError = (errorMessage) => {
-    setError(errorMessage);
-
-    setTimeout(() => {
-      setError("");
-    }, 3000);
-  };
-
-  useEffect(() => {
-    return () => setError("");
-  }, []);
-
   return (
     <div className="auth-container signup-container">
-      <div className="auth-item signup-item">
+      <div className="auth-item">
         <h2 className="auth-title-primary signup-title-primary">
           Register for Effortless Library Management.
         </h2>
         <img src={SignupImage} alt="signup-image" />
       </div>
 
-      <div className="auth-item signup-item">
-        <h2 className="auth-title-secondary signup-title-secondary">Signup </h2>
+      <div className="auth-item">
+        <h2 className="auth-title-secondary">Signup </h2>
 
         {error && <span className="auth-error"> {error} </span>}
 
-        <form className="auth-form signup-form" onSubmit={(e) => signupUser(e)}>
+        <form className="auth-form" onSubmit={(e) => signupUser(e)}>
           <div className="form-item">
             <label htmlFor="email"> Email </label>
             <input
@@ -81,7 +71,7 @@ const Signup = () => {
             />
           </div>
 
-          <button type="submit" className="auth-btn signup-btn">
+          <button type="submit" className="auth-btn">
             Signup
           </button>
         </form>
