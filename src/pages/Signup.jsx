@@ -41,7 +41,7 @@ const Signup = () => {
 
     setTimeout(() => {
       setError("");
-    }, 4500);
+    }, 3000);
   };
 
   useEffect(() => {
