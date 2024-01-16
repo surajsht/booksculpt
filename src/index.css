@@ -12,6 +12,54 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+.container {
+  max-width: 162rem;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+}
+
+@media (max-width: 1600px) {
+  .container {
+    max-width: 144rem;
+  }
+}
+
+@media (max-width: 1400px) {
+  .container {
+    max-width: 132rem;
+  }
+}
+
+@media (max-width: 1199px) {
+  .container {
+    max-width: 112rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: 92rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .container {
+    max-width: calc(100% - 8rem);
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    max-width: calc(100% - 4rem);
+  }
+}
+
+@media (max-width: 575px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
 .auth-container {
   display: grid;
   grid-template-columns: 40% 60%;
@@ -240,4 +288,164 @@ body {
 .auth-item > p a:hover,
 .auth-item > p a:focus {
   color: #000;
+}
+
+.navbar-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 3.2rem;
+  padding-bottom: 3.2rem;
+}
+
+@media (max-width: 1024px) {
+  .navbar-container {
+    grid-template-columns: auto 1fr auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar-container {
+    grid-template-columns: 1fr auto auto;
+    gap: 1.6rem;
+  }
+}
+
+.logo {
+  font-size: 3.5rem;
+  font-weight: 600;
+}
+
+@media (max-width: 991px) {
+  .logo {
+    font-size: 2.8rem;
+  }
+}
+
+.navbar-form,
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.navbar-form {
+  justify-self: center;
+}
+
+@media (max-width: 767px) {
+  .navbar-form {
+    justify-self: flex-end;
+  }
+}
+
+.navbar-form input {
+  height: 4rem;
+  width: 40rem;
+  padding: 1.2rem;
+  outline: none;
+  border: 1.5px solid #000;
+}
+
+@media (max-width: 991px) {
+  .navbar-form input {
+    width: 24rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar-form input {
+    display: none;
+  }
+}
+
+.navbar-form-button {
+  height: 4rem;
+  width: 6rem;
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  .navbar-form input,
+  .navbar-form-button {
+    height: 3.2rem;
+  }
+
+  .navbar-form-button {
+    width: 4.8rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar-form-button {
+    background-color: transparent;
+    border: 0;
+    height: auto;
+    width: auto;
+  }
+}
+
+.navbar-form-button img,
+.user-info-container img {
+  height: 2.4rem;
+  width: 2.4rem;
+}
+
+.user-info-container {
+  position: relative;
+  justify-self: flex-end;
+  cursor: pointer;
+}
+
+.user-info-container span {
+  font-size: 1.6rem;
+}
+
+@media (max-width: 1024px) {
+  .user-info span {
+    display: none;
+  }
+}
+
+.user-info-option {
+  position: absolute;
+  top: 3.2rem;
+  right: 0;
+  width: 24rem;
+  box-shadow: 0 0.6rem 1rem 0 rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.4s;
+}
+
+.user-info-option.show-info-option {
+  opacity: 1;
+  visibility: visible;
+  top: 4rem;
+}
+
+.user-info-option > * {
+  padding: 1.6rem;
+}
+
+.user-info-option > *:hover,
+.user-info-option > *:focus {
+  background-color: #eeeeee;
+}
+
+.user-info-option > span {
+  display: block;
+}
+
+@media (min-width: 1025px) {
+  .user-info-option > span {
+    display: none;
+  }
+}
+
+.user-logout {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
 }
