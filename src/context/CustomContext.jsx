@@ -7,6 +7,7 @@ const CreateCustomContext = createContext();
 const CustomContext = ({ children }) => {
   const [error, setError] = useState("");
   const [currentUser, setCurrentUser] = useState([]);
+  const [activeSearchBar, setActiveSearchBar] = useState(false);
 
   const handleError = (errorMessage) => {
     setError(errorMessage);
@@ -27,7 +28,14 @@ const CustomContext = ({ children }) => {
     };
   }, []);
 
-  let contextValue = { error, setError, handleError, currentUser };
+  let contextValue = {
+    error,
+    setError,
+    handleError,
+    currentUser,
+    activeSearchBar,
+    setActiveSearchBar,
+  };
 
   return (
     <CreateCustomContext.Provider value={contextValue}>

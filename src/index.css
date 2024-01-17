@@ -309,7 +309,15 @@ body {
   .navbar-container {
     grid-template-columns: 1fr auto auto;
     gap: 1.6rem;
+    padding-top: 2.4rem;
+    padding-bottom: 2.4rem;
   }
+}
+
+.navbar-container img,
+.search-bar img {
+  height: 2.4rem;
+  width: 2.4rem;
 }
 
 .logo {
@@ -323,6 +331,20 @@ body {
   }
 }
 
+@media (min-width: 768px) {
+  .responsive-searchbar-icon {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .responsive-searchbar-icon {
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+  }
+}
+
 .navbar-form,
 .user-info {
   display: flex;
@@ -330,13 +352,13 @@ body {
   gap: 0.8rem;
 }
 
-.navbar-form {
+.navbar-container .navbar-form {
   justify-self: center;
 }
 
 @media (max-width: 767px) {
-  .navbar-form {
-    justify-self: flex-end;
+  .navbar-container .navbar-form {
+    display: none;
   }
 }
 
@@ -351,12 +373,6 @@ body {
 @media (max-width: 991px) {
   .navbar-form input {
     width: 24rem;
-  }
-}
-
-@media (max-width: 767px) {
-  .navbar-form input {
-    display: none;
   }
 }
 
@@ -375,21 +391,6 @@ body {
   .navbar-form-button {
     width: 4.8rem;
   }
-}
-
-@media (max-width: 767px) {
-  .navbar-form-button {
-    background-color: transparent;
-    border: 0;
-    height: auto;
-    width: auto;
-  }
-}
-
-.navbar-form-button img,
-.user-info-container img {
-  height: 2.4rem;
-  width: 2.4rem;
 }
 
 .user-info-container {
@@ -448,4 +449,63 @@ body {
   display: flex;
   align-items: center;
   gap: 1.6rem;
+}
+
+@media (min-width: 768px) {
+  .search-bar {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .search-bar {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: grid;
+    transition: top 0.6s;
+  }
+
+  .search-bar.active {
+    top: 0;
+  }
+
+  .search-bar .navbar-form {
+    align-self: flex-start;
+    justify-content: center;
+    padding-top: 8rem;
+    width: 100%;
+  }
+
+  .search-bar .navbar-form input,
+  .search-bar .navbar-form button {
+    height: 4.4rem;
+  }
+
+  .search-bar .navbar-form input {
+    width: calc(100% - 24rem);
+  }
+}
+
+@media (max-width: 575px) {
+  .search-bar .navbar-form input {
+    width: calc(100% - 8rem);
+  }
+}
+
+.search-bar-close {
+  position: absolute;
+  top: 3.2rem;
+  right: 5.6rem;
+  padding: 0.2rem 0.4rem;
+}
+
+@media (max-width: 575px) {
+  .search-bar-close {
+    right: 1.6rem;
+  }
 }

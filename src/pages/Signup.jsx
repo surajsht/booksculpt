@@ -5,12 +5,14 @@ import {
   createUserWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../firebase/FireConfig";
 import { useState } from "react";
 import { UseCustomContext } from "../context/CustomContext";
 
 const Signup = () => {
+  let [name, setName] = useState("");
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
 
@@ -21,8 +23,17 @@ const Signup = () => {
 
   const signupUser = async (e) => {
     e.preventDefault();
+
+    if (name === "" && email && password) {
+      handleError("Error: Name missing");
+      return;
+    }
+
     try {
       await createUserWithEmailAndPassword(auth, email, password);
+      await updateProfile(auth.currentUser, {
+        displayName: `${name}`,
+      });
       navigate("/profile");
     } catch (e) {
       handleError(e.message);
@@ -53,6 +64,15 @@ const Signup = () => {
         {error && <span className="auth-error"> {error} </span>}
 
         <form className="auth-form" onSubmit={(e) => signupUser(e)}>
+          <div className="form-item">
+            <label htmlFor="email"> Name </label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+
           <div className="form-item">
             <label htmlFor="email"> Email </label>
             <input
