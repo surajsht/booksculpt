@@ -1,3 +1,5 @@
+import AddNewPopup from "../components/AddNewPopup";
+import Dashboard from "../components/Dashboard";
 import Navbar from "../components/Navbar";
 import ResponsiveSearchBar from "../components/ResponsiveSearchBar";
 
@@ -6,6 +8,8 @@ const Profile = () => {
     <>
       <Navbar />
       <ResponsiveSearchBar />
+      <Dashboard />
+      <AddNewPopup />
     </>
   );
 };

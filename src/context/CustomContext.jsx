@@ -8,6 +8,7 @@ const CustomContext = ({ children }) => {
   const [error, setError] = useState("");
   const [currentUser, setCurrentUser] = useState([]);
   const [activeSearchBar, setActiveSearchBar] = useState(false);
+  const [activeAddPopup, setActiveAddPopup] = useState(false);
 
   const handleError = (errorMessage) => {
     setError(errorMessage);
@@ -35,6 +36,8 @@ const CustomContext = ({ children }) => {
     currentUser,
     activeSearchBar,
     setActiveSearchBar,
+    activeAddPopup,
+    setActiveAddPopup,
   };
 
   return (
