@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+:root {
+  --light-black-color: #a7a7a7;
+  --icon-color: #444444;
+}
+
 html {
   font-size: 62.5%;
 }
@@ -297,6 +302,7 @@ body {
   margin: 0 auto;
   padding-top: 3.2rem;
   padding-bottom: 3.2rem;
+  border-bottom: 1.5px solid var(--light-black-color);
 }
 
 @media (max-width: 1024px) {
@@ -314,10 +320,11 @@ body {
   }
 }
 
-.navbar-container img,
-.search-bar img {
-  height: 2.4rem;
-  width: 2.4rem;
+.navbar-container svg,
+.search-bar svg {
+  height: 1.8rem;
+  width: 1.8rem;
+  color: var(--icon-color);
 }
 
 .logo {
@@ -367,7 +374,7 @@ body {
   width: 40rem;
   padding: 1.2rem;
   outline: none;
-  border: 1.5px solid #000;
+  border: 1.5px solid var(--light-black-color);
 }
 
 @media (max-width: 991px) {
@@ -380,6 +387,7 @@ body {
   height: 4rem;
   width: 6rem;
   cursor: pointer;
+  border: 1px solid var(--light-black-color);
 }
 
 @media (max-width: 991px) {

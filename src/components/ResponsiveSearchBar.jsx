@@ -1,6 +1,7 @@
 import SearchBar from "./SearchBar";
 import { UseCustomContext } from "../context/CustomContext";
-import CloseIcon from "../assets/close.svg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const ResponsiveSearchBar = () => {
   let { activeSearchBar, setActiveSearchBar } = UseCustomContext();
@@ -12,7 +13,7 @@ const ResponsiveSearchBar = () => {
   return (
     <div className={`search-bar ${activeSearchBar ? "active" : ""}`}>
       <button className="search-bar-close" onClick={closeSearchBar}>
-        <img src={CloseIcon} alt="close-button" />
+        <FontAwesomeIcon icon={faXmark} />
       </button>
       <SearchBar />
     </div>

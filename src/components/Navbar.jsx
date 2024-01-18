@@ -1,12 +1,15 @@
-import searchIcon from "../assets/search.svg";
-import user from "../assets/user.svg";
-import logout from "../assets/logout.svg";
 import { UseCustomContext } from "../context/CustomContext";
 import { useState, useRef, useEffect } from "react";
 import { auth } from "../firebase/FireConfig";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import SearchBar from "./SearchBar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faMagnifyingGlass,
+  faUser,
+  faArrowRightFromBracket,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
   let [userInfo, setUserInfo] = useState(false);
@@ -58,7 +61,7 @@ const Navbar = () => {
         className="responsive-searchbar-icon"
         onClick={openSearchBar}
       >
-        <img src={searchIcon} alt="search-icon" />
+        <FontAwesomeIcon icon={faMagnifyingGlass} />
       </button>
 
       <div className="user-info-container">
@@ -67,7 +70,7 @@ const Navbar = () => {
           onClick={handleUserInfo}
           ref={userContainerRef}
         >
-          <img src={user} alt="user-icon" />
+          <FontAwesomeIcon icon={faUser} />
           {currentUser.displayName && <span> {currentUser?.displayName} </span>}
         </div>
 
@@ -76,7 +79,7 @@ const Navbar = () => {
         >
           <span> {currentUser?.displayName} </span>
           <div className="user-logout" onClick={signOutUser}>
-            <img src={logout} alt="logout-icon" />
+            <FontAwesomeIcon icon={faArrowRightFromBracket} />
             <span> Logout </span>
           </div>
         </div>
