@@ -420,6 +420,7 @@ body {
   top: 3.2rem;
   right: 0;
   width: 24rem;
+  background-color: #fff;
   box-shadow: 0 0.6rem 1rem 0 rgba(0, 0, 0, 0.3);
   opacity: 0;
   visibility: hidden;
@@ -639,4 +640,18 @@ body {
 .popup-btn-close:focus {
   color: #fff;
   background-color: #5c5e66;
+}
+
+.quote-container {
+  margin-top: 2.4rem;
+}
+
+.quote {
+  font-size: 4.2rem;
+  font-weight: 400;
+  margin-bottom: 1.2rem;
+}
+
+.quote-author-name {
+  font-size: 1.6rem;
 }
