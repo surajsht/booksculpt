@@ -12,6 +12,7 @@ const Quote = () => {
           disableOnInteraction: false,
         }}
         speed={900}
+        loop={true}
         slidesPerView={1}
         spaceBetween={24}
         modules={[Autoplay]}
@@ -21,8 +22,8 @@ const Quote = () => {
           return (
             <SwiperSlide key={id}>
               <div className="quote-data">
-                <h2 className="quote"> {quote} </h2>
-                <span className="quote-author-name"> {`— "${author}"`} </span>
+                <h2 className="quote"> {`"${quote}"`} </h2>
+                <span className="quote-author-name"> {`— ${author}`} </span>
               </div>
             </SwiperSlide>
           );

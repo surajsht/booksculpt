@@ -9,6 +9,7 @@ const CustomContext = ({ children }) => {
   const [currentUser, setCurrentUser] = useState([]);
   const [activeSearchBar, setActiveSearchBar] = useState(false);
   const [activeAddPopup, setActiveAddPopup] = useState(false);
+  const [profileLoading, setProfileLoading] = useState(true);
 
   const handleError = (errorMessage) => {
     setError(errorMessage);
@@ -21,6 +22,7 @@ const CustomContext = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
+      setProfileLoading(false);
     });
 
     return () => {
@@ -38,6 +40,7 @@ const CustomContext = ({ children }) => {
     setActiveSearchBar,
     activeAddPopup,
     setActiveAddPopup,
+    profileLoading,
   };
 
   return (
