@@ -7,9 +7,10 @@ import {
   GoogleAuthProvider,
   updateProfile,
 } from "firebase/auth";
-import { auth } from "../firebase/FireConfig";
+import { auth, db } from "../firebase/FireConfig";
 import { useState } from "react";
 import { UseCustomContext } from "../context/CustomContext";
+import { setDoc, doc } from "firebase/firestore";
 
 const Signup = () => {
   let [name, setName] = useState("");
@@ -34,6 +35,9 @@ const Signup = () => {
       await updateProfile(auth.currentUser, {
         displayName: `${name}`,
       });
+      await setDoc(doc(db, "users", email), {
+        savedBooks: [],
+      });
       navigate("/profile");
     } catch (e) {
       handleError(e.message);
@@ -42,7 +46,10 @@ const Signup = () => {
 
   const signupWithGoogle = async () => {
     try {
-      await signInWithPopup(auth, provider);
+      const googleAuth = await signInWithPopup(auth, provider);
+      await setDoc(doc(db, "users", googleAuth.user.email), {
+        savedBooks: [],
+      });
       navigate("/profile");
     } catch (e) {
       handleError(e.message);
