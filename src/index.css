@@ -546,7 +546,7 @@ body {
 }
 
 .add-new-popup-container {
-  position: absolute;
+  position: fixed;
   top: -100%;
   left: 0;
   right: 0;
@@ -557,6 +557,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  z-index: 100;
   transition: top 0.6s;
 }
 
@@ -572,10 +573,31 @@ body {
   padding: 6rem;
 }
 
+@media (max-width: 767px) {
+  .new-popup-content {
+    max-width: 56rem;
+    padding: 2.4rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .new-popup-content {
+    max-width: calc(100% - 4.8rem);
+    padding: 2.4rem;
+  }
+}
+
 .popup-title {
   font-size: 5.2rem;
   margin-bottom: 3.2rem;
   text-align: center;
+}
+
+@media (max-width: 575px) {
+  .popup-title {
+    font-size: 4rem;
+    margin-bottom: 2.4rem;
+  }
 }
 
 .popup-form {
@@ -589,6 +611,12 @@ body {
   margin-bottom: 3.2rem;
 }
 
+@media (max-width: 575px) {
+  .popup-form-item {
+    margin-bottom: 1.6rem;
+  }
+}
+
 .popup-form-item label {
   display: block;
   font-size: 1.2rem;
@@ -600,6 +628,13 @@ body {
 
 .popup-form-item:where(:first-child, :nth-child(2)) {
   width: calc(50% - 1.6rem);
+}
+
+@media (max-width: 575px) {
+  .popup-form-item:where(:first-child, :nth-child(2)) {
+    width: 100%;
+    margin-bottom: 1.6rem;
+  }
 }
 
 .popup-form-item input {
@@ -617,6 +652,12 @@ body {
   height: 16rem;
   padding: 1.6rem;
   resize: none;
+}
+
+@media (max-width: 575px) {
+  .popup-form-item textarea {
+    height: 12rem;
+  }
 }
 
 .popup-btn-submit {
