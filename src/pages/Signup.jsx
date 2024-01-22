@@ -35,9 +35,13 @@ const Signup = () => {
       await updateProfile(auth.currentUser, {
         displayName: `${name}`,
       });
-      await setDoc(doc(db, "users", email), {
-        savedBooks: [],
-      });
+
+      if (!auth.currentUser.email) {
+        await setDoc(doc(db, "users", email), {
+          savedBooks: [],
+        });
+      }
+
       navigate("/profile");
     } catch (e) {
       handleError(e.message);
@@ -47,9 +51,13 @@ const Signup = () => {
   const signupWithGoogle = async () => {
     try {
       const googleAuth = await signInWithPopup(auth, provider);
-      await setDoc(doc(db, "users", googleAuth.user.email), {
-        savedBooks: [],
-      });
+
+      if (!googleAuth.user.email) {
+        await setDoc(doc(db, "users", googleAuth.user.email), {
+          savedBooks: [],
+        });
+      }
+
       navigate("/profile");
     } catch (e) {
       handleError(e.message);

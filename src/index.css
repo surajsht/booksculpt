@@ -522,6 +522,12 @@ body {
   grid-template-columns: 80% 20%;
 }
 
+.main-block-container {
+  padding-right: 3.2rem;
+  margin-bottom: 4rem;
+  border-right: 1px solid var(--light-black-color);
+}
+
 .btn-add-book,
 .popup-btn-submit {
   border: 0;
@@ -685,6 +691,7 @@ body {
 
 .quote-container {
   margin-top: 2.4rem;
+  padding-left: 3.2rem;
 }
 
 .quote {
@@ -695,4 +702,50 @@ body {
 
 .quote-author-name {
   font-size: 1.6rem;
+}
+
+.main-block-top {
+  margin-bottom: 8rem;
+}
+
+.main-block-bottom {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+}
+
+.bottom-item-image {
+  height: 32rem;
+  width: 100%;
+  margin-bottom: 1.6rem;
+}
+
+.bottom-item-image img {
+  height: 100%;
+  width: 100%;
+  padding: 1.6rem;
+  object-fit: contain;
+  background-color: #fafafa;
+}
+
+.bottom-item-image .no-image {
+  padding: 0;
+  background-color: transparent;
+  border: 1px solid var(--light-black-color);
+}
+
+.bottom-item-title {
+  font-size: 2.5rem;
+}
+
+.bottom-item-author {
+  display: block;
+  font-size: 1.4rem;
+  margin-top: 0.4rem;
+}
+
+.bottom-item-description {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  margin-top: 1.6rem;
 }

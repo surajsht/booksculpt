@@ -71,7 +71,7 @@ const Navbar = () => {
           ref={userContainerRef}
         >
           <FontAwesomeIcon icon={faUser} />
-          {currentUser.displayName && <span> {currentUser?.displayName} </span>}
+          {currentUser?.displayName && <span> {currentUser.displayName} </span>}
         </div>
 
         <div
