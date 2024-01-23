@@ -61,6 +61,7 @@ body {
 @media (max-width: 575px) {
   .container {
     max-width: 100%;
+    padding: 0 2.4rem;
   }
 }
 
@@ -522,10 +523,29 @@ body {
   grid-template-columns: 80% 20%;
 }
 
+@media (max-width: 1024px) {
+  .dashboard-container {
+    grid-template-columns: 70% 30%;
+  }
+}
+
+@media (max-width: 991px) {
+  .dashboard-container {
+    grid-template-columns: 100%;
+  }
+}
+
 .main-block-container {
   padding-right: 3.2rem;
   margin-bottom: 4rem;
   border-right: 1px solid var(--light-black-color);
+}
+
+@media (max-width: 991px) {
+  .main-block-container {
+    border-right: 0;
+    padding-right: 0;
+  }
 }
 
 .btn-add-book,
@@ -694,10 +714,22 @@ body {
   padding-left: 3.2rem;
 }
 
+@media (max-width: 991px) {
+  .quote-container {
+    padding-left: 0;
+  }
+}
+
 .quote {
   font-size: 4.2rem;
   font-weight: 400;
   margin-bottom: 1.2rem;
+}
+
+@media (max-width: 1199px) {
+  .quote {
+    font-size: 3.2rem;
+  }
 }
 
 .quote-author-name {
@@ -708,10 +740,33 @@ body {
   margin-bottom: 8rem;
 }
 
+@media (max-width: 1024px) {
+  .main-block-top {
+    margin-bottom: 4rem;
+  }
+}
+
 .main-block-bottom {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 4rem;
+}
+
+@media (max-width: 1024px) {
+  .main-block-bottom {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .main-block-bottom {
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+  }
+}
+
+.block-bottom-item {
+  cursor: pointer;
 }
 
 .bottom-item-image {

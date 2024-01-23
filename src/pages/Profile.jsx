@@ -1,4 +1,5 @@
 import AddNewPopup from "../components/AddNewPopup";
+import BookPopup from "../components/BookPopup";
 import Dashboard from "../components/Dashboard";
 import Navbar from "../components/Navbar";
 import ResponsiveSearchBar from "../components/ResponsiveSearchBar";
@@ -10,6 +11,7 @@ const Profile = () => {
       <ResponsiveSearchBar />
       <Dashboard />
       <AddNewPopup />
+      <BookPopup />
     </>
   );
 };
