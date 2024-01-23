@@ -7,6 +7,8 @@
 :root {
   --light-black-color: #a7a7a7;
   --icon-color: #444444;
+  --profile-btn-color: #242733;
+  --profile-btn-hover-color: #5c5e66;
 }
 
 html {
@@ -553,7 +555,7 @@ body {
   border: 0;
   outline: 0;
   color: #fff;
-  background-color: #242733;
+  background-color: var(--profile-btn-color);
   font-size: 1.8rem;
   padding: 1.2rem 2rem;
   cursor: pointer;
@@ -564,7 +566,7 @@ body {
 .btn-add-book:focus,
 .popup-btn-submit:hover,
 .popup-btn-submit:focus {
-  background-color: #5c5e66;
+  background-color: var(--profile-btn-hover-color);
 }
 
 .btn-add-book svg {
@@ -803,4 +805,178 @@ body {
   font-size: 1.6rem;
   line-height: 1.5;
   margin-top: 1.6rem;
+}
+
+.book-popup-container {
+  position: fixed;
+  top: -100vh;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  transition: top 0.6s;
+}
+
+.book-popup-container.active {
+  top: 0;
+}
+
+.book-popup-container::before {
+  position: absolute;
+  content: "";
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.book-popup-content {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 104rem;
+  background-color: #fff;
+  padding: 6rem;
+  z-index: 10;
+}
+
+@media (max-width: 1199px) {
+  .book-popup-content {
+    max-width: 100rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .book-popup-content {
+    max-width: 88rem;
+    padding: 3.2rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .book-popup-content {
+    max-width: calc(100% - 8rem);
+    gap: 2.4rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .book-popup-content {
+    grid-template-columns: 1fr;
+    max-height: calc(100% - 8rem);
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 575px) {
+  .book-popup-content {
+    max-width: calc(100% - 2.4rem);
+  }
+}
+
+.book-popup-image {
+  height: 56rem;
+  padding: 2.4rem;
+  background-color: #fafafa;
+}
+
+@media (max-width: 767px) {
+  .book-popup-image {
+    height: 44rem;
+  }
+}
+
+.book-popup-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+@media (min-width: 768px) {
+  .book-popup-detail {
+    max-height: 52rem;
+    padding-right: 2rem;
+    overflow-y: auto;
+  }
+
+  .book-popup-detail::-webkit-scrollbar {
+    width: 0.4rem;
+  }
+
+  .book-popup-detail::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+  }
+
+  .book-popup-detail::-webkit-scrollbar-thumb {
+    background-color: var(--profile-btn-hover-color);
+  }
+}
+
+.book-popup-title {
+  font-size: 5.2rem;
+}
+
+.book-popup-author {
+  display: block;
+  font-size: 1.4rem;
+  margin-top: 0.4rem;
+}
+
+.book-popup-description {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  margin-top: 2.4rem;
+}
+
+.book-popup-button-detail {
+  margin-top: 3.2rem;
+}
+
+.book-btn {
+  border: 0;
+  outline: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.07rem;
+  padding: 1.6rem 6rem;
+  margin-right: 1.6rem;
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .book-btn {
+    padding: 1.6rem 4rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .book-btn {
+    padding: 1.6rem 2.4rem;
+  }
+}
+
+.book-btn-edit {
+  color: #fff;
+  background-color: var(--profile-btn-color);
+}
+
+.book-btn-delete {
+  border: 2px solid var(--profile-btn-color);
+  background-color: transparent;
+}
+
+.book-btn:hover,
+.book-btn:focus {
+  color: #fff;
+  background-color: var(--profile-btn-hover-color);
+  border-color: var(--profile-btn-hover-color);
+}
+
+.book-btn svg {
+  margin-right: 0.8rem;
 }
