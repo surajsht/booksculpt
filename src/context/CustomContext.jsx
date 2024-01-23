@@ -9,7 +9,9 @@ const CustomContext = ({ children }) => {
   const [currentUser, setCurrentUser] = useState([]);
   const [activeSearchBar, setActiveSearchBar] = useState(false);
   const [activeAddPopup, setActiveAddPopup] = useState(false);
+  const [bookPopupActive, setBookPopupActive] = useState(false);
   const [profileLoading, setProfileLoading] = useState(true);
+  const [currentIndBook, setCurrentIndBook] = useState();
 
   const handleError = (errorMessage) => {
     setError(errorMessage);
@@ -41,6 +43,10 @@ const CustomContext = ({ children }) => {
     activeAddPopup,
     setActiveAddPopup,
     profileLoading,
+    currentIndBook,
+    setCurrentIndBook,
+    bookPopupActive,
+    setBookPopupActive,
   };
 
   return (

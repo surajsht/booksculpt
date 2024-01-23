@@ -9,10 +9,20 @@ import noImage from "../assets/no-image.jpg";
 const MainBlock = () => {
   let [currentBooks, setCurrentBooks] = useState([]);
 
-  let { setActiveAddPopup, currentUser } = UseCustomContext();
+  let {
+    setActiveAddPopup,
+    currentUser,
+    setCurrentIndBook,
+    setBookPopupActive,
+  } = UseCustomContext();
 
   const openAddPopup = () => {
     setActiveAddPopup(true);
+  };
+
+  const openIndBook = (item) => {
+    setCurrentIndBook(item);
+    setBookPopupActive(true);
   };
 
   useEffect(() => {
@@ -35,7 +45,11 @@ const MainBlock = () => {
           let { name, author, description, image } = item;
 
           return (
-            <div className="block-bottom-item" key={itemIdx}>
+            <div
+              className="block-bottom-item"
+              key={itemIdx}
+              onClick={() => openIndBook(item)}
+            >
               <div className="bottom-item-image">
                 {image ? (
                   <img src={image} alt={name} />
@@ -53,10 +67,9 @@ const MainBlock = () => {
                 )}
                 {description.length !== 0 && (
                   <p className="bottom-item-description">
-                    {" "}
                     {description.length > 15
                       ? `${description.slice(0, 190)}...`
-                      : description}{" "}
+                      : description}
                   </p>
                 )}
               </div>
