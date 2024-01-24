@@ -17,9 +17,17 @@ const BookPopup = () => {
     currentUser,
     IndBookIdx,
     currentBooks,
+    setActiveEditPopup,
+    setEditIndBook,
   } = UseCustomContext();
 
   const bookRef = doc(db, "users", `${currentUser.email}`);
+
+  const editBook = (item) => {
+    setActiveEditPopup(true);
+    setEditIndBook(currentIndBook);
+    setBookPopupActive(false);
+  };
 
   const deleteBook = async () => {
     try {
@@ -62,7 +70,10 @@ const BookPopup = () => {
           <p className="book-popup-description">{`${currentIndBook?.description}`}</p>
 
           <div className="book-popup-button-detail">
-            <button className="book-btn book-btn-edit">
+            <button
+              className="book-btn book-btn-edit"
+              onClick={(item) => editBook(item)}
+            >
               <FontAwesomeIcon icon={faPenToSquare} /> Edit
             </button>
             <button

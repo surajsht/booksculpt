@@ -573,7 +573,7 @@ body {
   margin-left: 1.2rem;
 }
 
-.add-new-popup-container {
+.popup-container {
   position: fixed;
   top: -100%;
   left: 0;
@@ -589,11 +589,11 @@ body {
   transition: top 0.6s;
 }
 
-.add-new-popup-container.active {
+.popup-container.active {
   top: 0;
 }
 
-.new-popup-content {
+.popup-content {
   position: relative;
   max-width: 68rem;
   width: 100%;
@@ -602,14 +602,14 @@ body {
 }
 
 @media (max-width: 767px) {
-  .new-popup-content {
+  .popup-content {
     max-width: 56rem;
     padding: 2.4rem;
   }
 }
 
 @media (max-width: 575px) {
-  .new-popup-content {
+  .popup-content {
     max-width: calc(100% - 4.8rem);
     padding: 2.4rem;
   }

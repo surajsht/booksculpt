@@ -1,67 +1,72 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useState } from "react";
 import { UseCustomContext } from "../context/CustomContext";
+import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase/FireConfig";
-import { doc, updateDoc, arrayUnion } from "firebase/firestore";
-import { useState } from "react";
 
-const AddNewPopup = () => {
+const EditBookPopup = () => {
   let [bookName, setBookName] = useState("");
   let [bookAuthor, setBookAuthor] = useState("");
   let [bookDescription, setBookDescription] = useState("");
   let [bookImage, setBookImage] = useState("");
 
-  let { activeAddPopup, setActiveAddPopup, currentUser } = UseCustomContext();
+  const {
+    activeEditPopup,
+    setActiveEditPopup,
+    editIndBook,
+    currentUser,
+    currentBooks,
+    IndBookIdx,
+  } = UseCustomContext();
 
-  const bookDocRef = doc(db, "users", `${currentUser.email}`);
+  const closeEditPopup = () => {
+    setActiveEditPopup(false);
+  };
 
-  const addNewBook = async (e) => {
+  const bookRef = doc(db, "users", `${currentUser.email}`);
+
+  const updateBook = async (e) => {
     e.preventDefault();
-
-    if (
-      bookName === "" &&
-      bookAuthor === "" &&
-      bookDescription === "" &&
-      bookImage === ""
-    ) {
-      alert("Please enter some data");
-      return;
-    }
-
     try {
-      await updateDoc(bookDocRef, {
-        savedBooks: arrayUnion({
-          name: bookName,
-          author: bookAuthor,
-          description: bookDescription,
-          image: bookImage,
-        }),
+      let editBook = currentBooks.map((item, itemIdx) => {
+        if (itemIdx === IndBookIdx) {
+          return {
+            name: bookName,
+            author: bookAuthor,
+            description: bookDescription,
+            image: bookImage,
+          };
+        }
+        return item;
       });
-      alert("Book added successfully");
-      setBookName("");
-      setBookAuthor("");
-      setBookDescription("");
-      setBookImage("");
-      setActiveAddPopup(false);
+      await updateDoc(bookRef, {
+        savedBooks: editBook,
+      });
+      alert("Book has been updated");
+      setActiveEditPopup(false);
     } catch (e) {
       console.error(e);
     }
   };
 
-  const closeAddPopup = () => {
-    setActiveAddPopup(false);
-  };
+  useEffect(() => {
+    setBookName(`${editIndBook?.name}`);
+    setBookAuthor(`${editIndBook?.author}`);
+    setBookDescription(`${editIndBook?.description}`);
+    setBookImage(`${editIndBook?.image}`);
+  }, [editIndBook]);
 
   return (
     <div
-      className={`popup-container new-book-popup-container ${
-        activeAddPopup ? "active" : ""
+      className={`popup-container edit-book-popup-container ${
+        activeEditPopup ? "active" : ""
       }`}
     >
       <div className="popup-content">
-        <h2 className="popup-title">Add a book</h2>
+        <h2 className="popup-title">Edit a book</h2>
 
-        <form className="popup-form" onSubmit={(e) => addNewBook(e)}>
+        <form className="popup-form" onSubmit={(e) => updateBook(e)}>
           <div className="popup-form-item">
             <label htmlFor="name"> book Name </label>
             <input
@@ -99,11 +104,11 @@ const AddNewPopup = () => {
           </div>
 
           <button type="submit" className="popup-btn-submit">
-            Add Book
+            Save Edit
           </button>
         </form>
 
-        <button className="popup-btn-close" onClick={closeAddPopup}>
+        <button className="popup-btn-close" onClick={closeEditPopup}>
           <FontAwesomeIcon icon={faXmark} />
         </button>
       </div>
@@ -111,4 +116,4 @@ const AddNewPopup = () => {
   );
 };
 
-export default AddNewPopup;
+export default EditBookPopup;

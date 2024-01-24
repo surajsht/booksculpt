@@ -9,9 +9,11 @@ const CustomContext = ({ children }) => {
   const [currentUser, setCurrentUser] = useState([]);
   const [activeSearchBar, setActiveSearchBar] = useState(false);
   const [activeAddPopup, setActiveAddPopup] = useState(false);
+  const [activeEditPopup, setActiveEditPopup] = useState(false);
   const [bookPopupActive, setBookPopupActive] = useState(false);
   const [profileLoading, setProfileLoading] = useState(true);
   const [currentIndBook, setCurrentIndBook] = useState();
+  const [editIndBook, setEditIndBook] = useState();
   const [IndBookIdx, setIndBookIdx] = useState();
   const [currentBooks, setCurrentBooks] = useState([]);
 
@@ -44,6 +46,8 @@ const CustomContext = ({ children }) => {
     setActiveSearchBar,
     activeAddPopup,
     setActiveAddPopup,
+    activeEditPopup,
+    setActiveEditPopup,
     profileLoading,
     currentIndBook,
     setCurrentIndBook,
@@ -53,6 +57,8 @@ const CustomContext = ({ children }) => {
     setIndBookIdx,
     currentBooks,
     setCurrentBooks,
+    editIndBook,
+    setEditIndBook,
   };
 
   return (
