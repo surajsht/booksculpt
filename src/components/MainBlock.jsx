@@ -7,21 +7,23 @@ import { db } from "../firebase/FireConfig";
 import noImage from "../assets/no-image.jpg";
 
 const MainBlock = () => {
-  let [currentBooks, setCurrentBooks] = useState([]);
-
   let {
     setActiveAddPopup,
     currentUser,
     setCurrentIndBook,
     setBookPopupActive,
+    setIndBookIdx,
+    currentBooks,
+    setCurrentBooks,
   } = UseCustomContext();
 
   const openAddPopup = () => {
     setActiveAddPopup(true);
   };
 
-  const openIndBook = (item) => {
+  const openIndBook = (item, idx) => {
     setCurrentIndBook(item);
+    setIndBookIdx(idx);
     setBookPopupActive(true);
   };
 
@@ -48,7 +50,7 @@ const MainBlock = () => {
             <div
               className="block-bottom-item"
               key={itemIdx}
-              onClick={() => openIndBook(item)}
+              onClick={() => openIndBook(item, itemIdx)}
             >
               <div className="bottom-item-image">
                 {image ? (

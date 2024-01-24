@@ -6,10 +6,35 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { UseCustomContext } from "../context/CustomContext";
 import noImage from "../assets/no-image.jpg";
+import { doc, updateDoc } from "firebase/firestore";
+import { db } from "../firebase/FireConfig";
 
 const BookPopup = () => {
-  let { currentIndBook, bookPopupActive, setBookPopupActive } =
-    UseCustomContext();
+  let {
+    currentIndBook,
+    bookPopupActive,
+    setBookPopupActive,
+    currentUser,
+    IndBookIdx,
+    currentBooks,
+  } = UseCustomContext();
+
+  const bookRef = doc(db, "users", `${currentUser.email}`);
+
+  const deleteBook = async () => {
+    try {
+      const filteredData = currentBooks.filter(
+        (item, itemIdx) => itemIdx !== IndBookIdx
+      );
+      await updateDoc(bookRef, {
+        savedBooks: filteredData,
+      });
+      setBookPopupActive(false);
+      alert("Book deleted successfully");
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   const closeBookPopup = () => {
     setBookPopupActive(false);
@@ -40,7 +65,10 @@ const BookPopup = () => {
             <button className="book-btn book-btn-edit">
               <FontAwesomeIcon icon={faPenToSquare} /> Edit
             </button>
-            <button className="book-btn book-btn-delete">
+            <button
+              className="book-btn book-btn-delete"
+              onClick={() => deleteBook()}
+            >
               <FontAwesomeIcon icon={faTrash} /> Delete
             </button>
           </div>

@@ -705,6 +705,12 @@ body {
   background-color: #dcdcdc;
 }
 
+@media (max-width: 575px) {
+  .popup-btn-close {
+    padding: 0.4rem 0.6rem;
+  }
+}
+
 .popup-btn-close:hover,
 .popup-btn-close:focus {
   color: #fff;

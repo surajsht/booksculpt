@@ -12,6 +12,8 @@ const CustomContext = ({ children }) => {
   const [bookPopupActive, setBookPopupActive] = useState(false);
   const [profileLoading, setProfileLoading] = useState(true);
   const [currentIndBook, setCurrentIndBook] = useState();
+  const [IndBookIdx, setIndBookIdx] = useState();
+  const [currentBooks, setCurrentBooks] = useState([]);
 
   const handleError = (errorMessage) => {
     setError(errorMessage);
@@ -47,6 +49,10 @@ const CustomContext = ({ children }) => {
     setCurrentIndBook,
     bookPopupActive,
     setBookPopupActive,
+    IndBookIdx,
+    setIndBookIdx,
+    currentBooks,
+    setCurrentBooks,
   };
 
   return (
