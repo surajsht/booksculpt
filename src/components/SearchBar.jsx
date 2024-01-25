@@ -1,13 +1,33 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
+import { UseCustomContext } from "../context/CustomContext";
 
 const SearchBar = () => {
+  let { currentBooks, setSearchedBookResult, searchQuery, setSearchQuery } =
+    UseCustomContext();
+
+  const searchBarForm = (e) => {
+    e.preventDefault();
+  };
+
+  const searchBook = (e) => {
+    setSearchQuery(e.target.value);
+
+    if (e.target.value === "") {
+      setSearchedBookResult([]);
+      return;
+    }
+
+    let searchBookList = currentBooks.filter((item) => {
+      if (item.name.includes(e.target.value)) {
+        return item;
+      }
+    });
+    setSearchedBookResult(searchBookList);
+  };
+
   return (
-    <form className="navbar-form">
-      <input type="text" />
-      <button type="submit" className="navbar-form-button">
-        <FontAwesomeIcon icon={faMagnifyingGlass} />
-      </button>
+    <form className="navbar-form" onSubmit={(e) => searchBarForm(e)}>
+      <input type="text" value={searchQuery} onChange={(e) => searchBook(e)} />
     </form>
   );
 };

@@ -29,9 +29,10 @@ const EditBookPopup = () => {
   const updateBook = async (e) => {
     e.preventDefault();
     try {
-      let editBook = currentBooks.map((item, itemIdx) => {
-        if (itemIdx === IndBookIdx) {
+      let editBook = currentBooks.map((item) => {
+        if (item.id === IndBookIdx) {
           return {
+            ...item,
             name: bookName,
             author: bookAuthor,
             description: bookDescription,

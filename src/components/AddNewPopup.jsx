@@ -18,6 +18,8 @@ const AddNewPopup = () => {
   const addNewBook = async (e) => {
     e.preventDefault();
 
+    const random4DigitNumber = Math.floor(1000 + Math.random() * 9000);
+
     if (
       bookName === "" &&
       bookAuthor === "" &&
@@ -31,6 +33,7 @@ const AddNewPopup = () => {
     try {
       await updateDoc(bookDocRef, {
         savedBooks: arrayUnion({
+          id: random4DigitNumber,
           name: bookName,
           author: bookAuthor,
           description: bookDescription,

@@ -38,18 +38,6 @@ body {
 
 @media (max-width: 1199px) {
   .container {
-    max-width: 112rem;
-  }
-}
-
-@media (max-width: 1024px) {
-  .container {
-    max-width: 92rem;
-  }
-}
-
-@media (max-width: 991px) {
-  .container {
     max-width: calc(100% - 8rem);
   }
 }
@@ -384,24 +372,6 @@ body {
   }
 }
 
-.navbar-form-button {
-  height: 4rem;
-  width: 6rem;
-  cursor: pointer;
-  border: 1px solid var(--light-black-color);
-}
-
-@media (max-width: 991px) {
-  .navbar-form input,
-  .navbar-form-button {
-    height: 3.2rem;
-  }
-
-  .navbar-form-button {
-    width: 4.8rem;
-  }
-}
-
 .user-info-container {
   position: relative;
   justify-self: flex-end;
@@ -539,7 +509,6 @@ body {
 
 .main-block-container {
   padding-right: 3.2rem;
-  margin-bottom: 4rem;
   border-right: 1px solid var(--light-black-color);
 }
 
@@ -725,6 +694,8 @@ body {
 @media (max-width: 991px) {
   .quote-container {
     padding-left: 0;
+    padding-top: 2.4rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.4);
   }
 }
 
@@ -997,4 +968,12 @@ body {
 
 .book-btn svg {
   margin-right: 0.8rem;
+}
+
+.search-result {
+  margin-top: 4rem;
+}
+
+.search-no-result-title {
+  font-size: 4rem;
 }

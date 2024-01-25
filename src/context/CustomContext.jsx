@@ -16,6 +16,8 @@ const CustomContext = ({ children }) => {
   const [editIndBook, setEditIndBook] = useState();
   const [IndBookIdx, setIndBookIdx] = useState();
   const [currentBooks, setCurrentBooks] = useState([]);
+  const [searchedBookResult, setSearchedBookResult] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleError = (errorMessage) => {
     setError(errorMessage);
@@ -59,6 +61,10 @@ const CustomContext = ({ children }) => {
     setCurrentBooks,
     editIndBook,
     setEditIndBook,
+    searchedBookResult,
+    setSearchedBookResult,
+    searchQuery,
+    setSearchQuery,
   };
 
   return (
