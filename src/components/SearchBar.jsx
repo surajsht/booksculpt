@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { UseCustomContext } from "../context/CustomContext";
 
 const SearchBar = () => {
@@ -27,7 +26,12 @@ const SearchBar = () => {
 
   return (
     <form className="navbar-form" onSubmit={(e) => searchBarForm(e)}>
-      <input type="text" value={searchQuery} onChange={(e) => searchBook(e)} />
+      <input
+        type="text"
+        value={searchQuery}
+        placeholder="Search a book title"
+        onChange={(e) => searchBook(e)}
+      />
     </form>
   );
 };
